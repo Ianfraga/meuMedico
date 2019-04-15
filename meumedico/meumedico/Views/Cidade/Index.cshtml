@@ -1,0 +1,37 @@
+﻿@model IEnumerable<meumedico.Cidades>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center; font-size:35px; color:black; padding-bottom:33px;">
+
+    <b>Lista de Cidades</b>
+
+</h2>
+
+<a href="/Cidade/Adicionar"><span class="glyphicon glyphicon-plus"></span>Cadastrar Cidade</a>
+<a href="/Medicos/Index"><span class="glyphicon glyphicon-list" style="padding-left:13px;padding-bottom:12px;"></span>Lista Médicos</a>
+<table class="table-bordered table-striped table-responsive tabelaMedico">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </th>
+        <th>
+            @Html.DisplayName("Opções")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cidade)
+        </td>
+        <td>
+            <a href="Editar/@item.IDCidade"><span class="glyphicon glyphicon-pencil"></span>Editar</a> <br />
+            <a href="Excluir/@item.IDCidade"><span class="glyphicon glyphicon-trash"></span>Excluir</a>
+        </td>
+    </tr>
+}
+
+</table>

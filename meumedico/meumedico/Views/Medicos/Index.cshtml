@@ -1,0 +1,98 @@
+﻿@model IEnumerable<meumedico.Medicos>
+
+@{
+    ViewBag.Title = "Lista de Médicos";
+}
+
+<h2 style="text-align:center; font-size:35px; color:black; padding-bottom:33px;">
+      
+    <b>Lista de Médicos</b>
+
+</h2>
+    <a href="/Medicos/Adicionar"><span class="glyphicon glyphicon-user"></span>Cadastrar Médico</a>
+    <a href="/Especialidade/Adicionar"><span class="glyphicon glyphicon-briefcase" style="padding-left:13px;"></span>Cadastrar Especialidade</a>
+    <a href="/Cidade/Adicionar"><span class="glyphicon glyphicon-home" style="padding-left:13px; padding-bottom:12px;"></span>Cadastrar Cidade</a>
+
+
+<table class="table-bordered table-striped table-responsive tabelaMedico">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CRM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Especialidades.Especialidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cidades.Cidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bairro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AtendePorConvenio)*@
+            @Html.DisplayName("Atende Convênios")
+
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TemClinica)*@
+            @Html.DisplayName("Possui Clinica")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebsiteBlog)
+        </th>
+        <th>
+            @Html.DisplayName("Opções")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CRM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidades.Especialidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidades.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.AtendePorConvenio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TemClinica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebsiteBlog)
+            </td>
+            <td>
+                <a href="Editar/@item.IDMedico"><span class="glyphicon glyphicon-pencil"></span>Editar</a> <br /><br />
+                <a href="Excluir/@item.IDMedico"><span class="glyphicon glyphicon-trash"></span>Excluir</a>
+            </td>
+        </tr>
+    }
+
+</table>

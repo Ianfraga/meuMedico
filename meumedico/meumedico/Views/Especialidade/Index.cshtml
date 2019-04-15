@@ -1,0 +1,46 @@
+﻿@model IEnumerable<meumedico.Especialidades>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center; font-size:35px; color:black; padding-bottom:33px;">
+
+    <b>Lista de Especialidades</b>
+
+</h2>
+
+<a href="/Especialidade/Adicionar"><span class="glyphicon glyphicon-plus"></span>Cadastrar Especialidade</a>
+<a href="/Medicos/Index"><span class="glyphicon glyphicon-list" style="padding-left:13px;padding-bottom:12px;"></span>Lista Médicos</a>
+
+<table class="table-bordered table-striped table-responsive tabelaMedico ">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IDEspecialidade)*@
+            @Html.DisplayName("Código da Especialidade");
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Especialidade)
+        </th>
+        <th>
+            @Html.DisplayName("Opções")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDEspecialidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidade)
+            </td>
+            <td>
+                <a href="Editar/@item.IDEspecialidade"><span class="glyphicon glyphicon-pencil"></span>Editar</a> <br />
+                <a href="Excluir/@item.IDEspecialidade"><span class="glyphicon glyphicon-trash"></span>Excluir</a>
+            </td>
+        </tr>
+    }
+
+</table>
